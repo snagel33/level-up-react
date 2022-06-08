@@ -13,20 +13,25 @@ export const GameForm = () => {
         provide some default values.
     */
     const [currentGame, setCurrentGame] = useState({
-        skillLevel: 1,
-        numberOfPlayers: 0,
+        skill_level: 1,
+        number_of_players: 0,
         title: "",
         maker: "",
-        gameTypeId: 0
+        game_type: 0
     })
 
     useEffect(() => {
-        // TODO: Get the game types, then set the state
+        getGameTypes().then(data => setGameTypes(data))
     }, [])
 
     const changeGameState = (domEvent) => {
-        // TODO: Complete the onChange function
+        const newGame = Object.assign({}, currentGame)
+        newGame[domEvent.target.name] = domEvent.target.value
+        setCurrentGame(newGame)
+        console.log("you hit changeGameState")
+        console.log(domEvent.target.value)
     }
+    
 
     return (
         <form className="gameForm">
@@ -84,11 +89,11 @@ export const GameForm = () => {
                     evt.preventDefault()
 
                     const game = {
-                        maker: currentGame.maker,
                         title: currentGame.title,
-                        numberOfPlayers: parseInt(currentGame.numberOfPlayers),
-                        skillLevel: parseInt(currentGame.skillLevel),
-                        gameTypeId: parseInt(currentGame.gameTypeId)
+                        maker: currentGame.maker,
+                        number_of_players: parseInt(currentGame.number_of_players),
+                        skill_level: parseInt(currentGame.skill_level),
+                        game_type: parseInt(currentGame.game_type)
                     }
 
                     // Send POST request to your API
