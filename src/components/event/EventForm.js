@@ -17,10 +17,10 @@ export const EventForm = () => {
         organizer: ""
     })
 
-    useEffect(() => {
-        getGames().then(data => setGames(data))
-    }
-    , [])
+    // useEffect(() => {
+    //     getGames().then(data => setGames(data))
+    // }
+    // , [])
 
     useEffect(() => {
         getEvents().then(data => setEvents(data))
