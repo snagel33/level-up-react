@@ -24,8 +24,8 @@ export const EventList = (props) => {
                         <div className="event__description">{event.description}</div>
                         <div className="event__date">{event.date}</div>
                         <div className="event__time">{event.time}</div>
-                        <div className="event__game">{event.game_id}</div>
-                        <div className="event__organizer">{event.organizer_id}</div>
+                        <div className="event__game">{event.game.title}</div>
+                        <div className="event__organizer">{event.organizer.id}</div>
                     </section>
                 })
             }

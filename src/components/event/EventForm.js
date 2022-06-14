@@ -17,10 +17,10 @@ export const EventForm = () => {
         organizer: ""
     })
 
-    // useEffect(() => {
-    //     getGames().then(data => setGames(data))
-    // }
-    // , [])
+    useEffect(() => {
+        getGames().then(data => setGames(data))
+    }
+    , [])
 
     useEffect(() => {
         getEvents().then(data => setEvents(data))
@@ -49,7 +49,7 @@ export const EventForm = () => {
         // if (event.target.name.includes("gameType")) {
         //     selectedVal = parseInt(selectedVal)
         // }
-        newEvent[event.target.id] = selectedVal
+        newEvent[event.target.name] = selectedVal
         setCurrentEvent(newEvent)
         console.log("you hit changeGameState")
     }
@@ -60,7 +60,7 @@ export const EventForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="game">Game: </label>
-                    <select value={currentEvent.game} name="game" id="gameId" onChange={changeEventState}>
+                    <select value={currentEvent.game} name="game" id="gameId" onChange={handleControlledInputChange}>
                         <option value="0">Select a game</option>
                         {games.map(g => (
                             <option key={g.id} value={g.id}>{g.title}</option>
@@ -101,7 +101,7 @@ export const EventForm = () => {
                     <label htmlFor="organizer">Organizer: </label>
                     <input type="text" name="organizer" required autoFocus className="form-control"
                         value={currentEvent.organizer}
-                        onChange={changeEventState}
+                        onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
@@ -110,17 +110,17 @@ export const EventForm = () => {
                 onClick={evt => {
                     // Prevent form from being submitted
                     evt.preventDefault()
-
-                    const event = {
-                        game: currentEvent.game,
-                        description: currentEvent.description,
-                        date: parseInt(currentEvent.date),
-                        time: parseInt(currentEvent.time),
-                        organizer: parseInt(currentEvent.organizer)
-                    }
-
+                    console.log(currentEvent)
+                    // const event = {
+                    //     game: currentEvent.game,
+                    //     description: currentEvent.description,
+                    //     date: parseInt(currentEvent.date),
+                    //     time: parseInt(currentEvent.time),
+                    //     organizer: parseInt(currentEvent.organizer)
+                    // }
+                    console.log("new_event")
                     // Send POST request to your API
-                    createEvent(event)
+                    createEvent(currentEvent)
                         .then(() => history.push("/"))
                 }}
                 className="btn btn-primary">Create</button>
