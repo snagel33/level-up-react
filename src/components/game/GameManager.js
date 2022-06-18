@@ -27,3 +27,29 @@ export const getGameTypes = () => {
      })
         .then(response => response.json())
 }
+
+// export const getGameById = (gameId) => {
+//     return fetch(`http://localhost:8000/games/${gameId}`)
+//         .then(response => response.json())
+// }
+
+export const getGameById = (gameId) => {
+    return fetch(`http://localhost:8000/games/${gameId}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+        })
+        .then(response => response.json())
+}
+
+export const updateGame = (editedGame) => {
+    return fetch(`http://localhost:8000/games/${editedGame.id}`, {
+        method: "PUT",
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify(editedGame)
+    })
+}
+

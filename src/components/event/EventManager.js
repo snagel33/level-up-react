@@ -19,12 +19,20 @@ export const createEvent = (event) => {
         .then(getEvents)
 }
 
-// export const getEventOrganizers = () => {
-//     return fetch("http://localhost:8000/events?_expand=organizer", {
-//         headers:{
-//             "Content-Type": "application/json",
-//             "Authorization": `Token ${localStorage.getItem("lu_token")}`
-//         }
-//     })
-//         .then(response => response.json())
-// }
+export const getEventOrganizer = () => {
+    return fetch("http://localhost:8000/gamer", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+        })
+        .then(response => response.json())
+}
+
+export const getEventById = (eventId) => {
+    return fetch(`http://localhost:8000/events/${eventId}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+        })
+        .then(response => response.json())
+}
