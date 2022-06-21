@@ -36,3 +36,23 @@ export const getEventById = (eventId) => {
         })
         .then(response => response.json())
 }
+
+export const updateEvent = (editedEvent) => {
+    return fetch(`http://localhost:8000/events/${editedEvent.id}`, {
+        method: "PUT",
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify(editedEvent)
+    })
+}
+
+export const deleteEvent = (eventId) => {
+    return fetch(`http://localhost:8000/events/${eventId}`, {
+        method: "DELETE",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+        })
+}

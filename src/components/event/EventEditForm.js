@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { getGames } from "../game/GameManager"
-import { getEventById } from "./EventManager"
+import { getEventById, updateEvent } from "./EventManager"
 import { getEventOrganizer } from "./EventManager"
 
 export const EventEditForm = () => {
@@ -60,10 +60,10 @@ export const EventEditForm = () => {
             .then(games => setGames(games))
         }, []);
 
-    useEffect(() => {
-        getEventOrganizer(eventId)
-            .then(organizers => setOrganizers(organizers))
-        }, []);
+    // useEffect(() => {
+    //     getEventOrganizer(eventId)
+    //         .then(organizers => setOrganizers(organizers))
+    //     }, []);
 
     return (
         <>
@@ -79,7 +79,7 @@ export const EventEditForm = () => {
                         <label htmlFor="description">Description</label>
 
                         <input
-                            type="date"
+                            type="text"
                             required
                             id="date"
                             value={event.date}
@@ -87,7 +87,7 @@ export const EventEditForm = () => {
                         <label htmlFor="date">Date</label>
 
                         <input
-                            type="time"
+                            type="text"
                             required
                             id="time"
                             value={event.time}
@@ -109,25 +109,12 @@ export const EventEditForm = () => {
                         </select>
                         <label htmlFor="game">Game</label>
 
-                        <select
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="organizer"
-                            value={event.organizer}
-                        >
-                            <option value="">Select Organizer</option>
-                            {organizers.map(organizer => (
-                                <option key={organizer.id} value={organizer.id}>
-                                    {organizer.name}
-                                </option>
-                            ))}
-                        </select>
-                        {/* <input
+                        <input
                             type="text"
                             required
                             id="organizer"
                             value={event.organizer}
-                        /> */}
+                        />
                         <label htmlFor="organizer">Organizer</label>
 
                     </div>

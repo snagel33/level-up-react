@@ -77,13 +77,13 @@ export const GameForm = () => {
                         onChange={changeGameState}
                     />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="gamer">Gamer: </label>
                     <input type="text" name="gamer" required autoFocus className="form-control"
                         value={currentGame.gamer}
                         onChange={changeGameState}
                     />
-                </div>
+                </div> */}
                 <div className="form-group">
                     <label htmlFor="number_of_players">Number of Players: </label>
                     <input type="text" name="number_of_players" required autoFocus className="form-control"
