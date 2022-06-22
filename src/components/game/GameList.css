@@ -1,3 +1,9 @@
+/* .games {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+} */
+
 .game {
     display: flex;
     flex-direction: column;
@@ -7,6 +13,8 @@
     height: 100%;
     background-color: #fafafa;
 }
+
+
 
 .btn_edit {
     background-color: #2205ff;
