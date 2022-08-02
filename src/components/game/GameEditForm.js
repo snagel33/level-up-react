@@ -61,6 +61,7 @@ export const GameEditForm = () => {
             <form>
                 <fieldset>
                     <div className="formgrid">
+                    <label htmlFor="title">Game Title</label>
                         <input
                             type="text"
                             required
@@ -69,8 +70,8 @@ export const GameEditForm = () => {
                             id="title"
                             value={game.title}
                         />
-                        <label htmlFor="title">Game Title</label>
-
+                        
+                        <label htmlFor="maker">Game Maker</label>
                         <input
                             type="text"
                             required
@@ -79,8 +80,8 @@ export const GameEditForm = () => {
                             id="maker"
                             value={game.maker}
                         />
-                        <label htmlFor="maker">Game Maker</label>
-
+                        
+                        <label htmlFor="number_of_players">Number of Players</label>
                         <input
                             type="number"
                             required
@@ -89,8 +90,8 @@ export const GameEditForm = () => {
                             id="number_of_players"
                             value={game.number_of_players}
                         />
-                        <label htmlFor="number_of_players">Number of Players</label>
-
+                        
+                        <label htmlFor="skill_level">Skill Level</label>
                         <input
                             type="number"
                             required
@@ -99,8 +100,8 @@ export const GameEditForm = () => {
                             id="skill_level"
                             value={game.skill_level}
                         />
-                        <label htmlFor="skill_level">Skill Level</label>
-
+                        
+                        <label htmlFor="game_type">Game Type</label>
                         <select
                             className="form-control"
                             onChange={handleFieldChange}
@@ -113,7 +114,7 @@ export const GameEditForm = () => {
                             }
                             )}
                         </select>
-                        <label htmlFor="game_type">Game Type</label>
+                        
 
                     </div>
                     <div className="alignRight">

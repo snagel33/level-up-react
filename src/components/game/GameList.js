@@ -23,6 +23,8 @@ export const GameList = (props) => {
                     history.push({ pathname: "/games/new" })
                 }}
             >Register New Game</button>
+            <section className="games_group">
+            
             {
                 games.map(game => {
                     return <section key={`game--${game.id}`} className="game">
@@ -31,6 +33,7 @@ export const GameList = (props) => {
                         <div className="game__skillLevel">Skill level is {game.skill_level}</div>
                         <div className="game__type">Game type is {game.game_type.label}</div>
                         <div className="game__type">Added by {game.gamer.id}</div>
+                        <div className="button_group">
                         <button className="btn_edit"
                                 onClick={() => {
                                     history.push({ pathname: `/games/${game.id}/edit` })
@@ -38,10 +41,11 @@ export const GameList = (props) => {
                         }>Edit</button>
                         <button className="btn_delete"
                                 onClick={() => handleDeleteGame(game.id)}>Delete</button>
+                        </div>
                     </section>
-
                 })
             }
+            </section>
         </article>
     )
 }

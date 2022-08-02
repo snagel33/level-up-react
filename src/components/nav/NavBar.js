@@ -8,7 +8,10 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
+                <img src="https://www.seekpng.com/png/detail/150-1504495_my-snes-comeback-super-nintendo-clip-art.png" alt="logo" className="logo" />
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/">Games</Link>
             </li>
             {/* <li className="nav-item">
                 <Link className="nav-link" to="/game/GameList">Games</Link>
